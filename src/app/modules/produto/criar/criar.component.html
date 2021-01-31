@@ -1,0 +1,31 @@
+<form [formGroup]="produtoForm" class="">
+
+    <div class="row">
+        <div class="col-xl-4">
+            <label for="name-input">Nome</label>
+            <input formControlName="nome" class="form-control" type="text" id="name-input">
+        </div>
+        <div class="col-xl-4">
+            <label for="valor-input">Valor</label>
+            <input formControlName="valor" class="form-control" type="number" id="valor-input" min="0">
+        </div>
+        <div class="col-xl-4">
+            <select class="form-control select-promocao" formControlName="promocao">
+                <option [ngValue]="undefined" selected="selected">Nenhuma promoção</option>
+                <option *ngFor="let promo of promocoes" [ngValue]="promo"> 
+                    {{promo?.nome}}
+                </option>
+            </select>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xl-2">
+            <button (click)="submit()" type="button" class="btn btn-primary btn-cadastrar"
+                [disabled]="!produtoForm.valid">Cadastrar</button>
+        </div>
+        <div class="col-xl-2">
+            <button (click)="voltarHandler()" type="button" class="btn btn-warning btn-cadastrar">Voltar</button>
+        </div>
+    </div>
+</form>

@@ -1,24 +1,10 @@
-<p>Gerenciamento de Produtos</p>
-<button> </button>
+<h1>Gerenciamento de Produtos</h1>
 
 
-<div>
-    <table>
-        <tr>
-            <th *ngFor="let column of headers">
-                {{column}}
-            </th>
-        </tr>
-        <tr *ngFor="let row of rows">
-            <td>
-                {{row?.id}}
-            </td>
-            <td>
-                {{row?.name}}
-            </td>
-            <td>
-                {{row?.valor}}
-            </td>
-    </table>
 
-</div>
+<app-criar *ngIf="produtoPage" (voltar)="openListar()"></app-criar>
+<app-editar *ngIf="editarPage" (voltar)="openListar()" [produto]="produto"></app-editar>
+
+<button *ngIf="listarPage" class="button btn btn-success" (click)="openCriar()">Adicionar novo produto</button>
+<app-listar *ngIf="listarPage" (editar)="openEditar($event)" (deletar)="openDeletar($event)"></app-listar>
+<app-delete *ngIf="deletarPage" (voltar)="openListar()" [produto]="produto"></app-delete>

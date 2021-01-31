@@ -1,0 +1,31 @@
+<form>
+    <h2>Deletar produto</h2>
+
+    <div class="row">
+        <div class="col-xl-4">
+            <label for="name-input">Nome</label>
+            <input [value]="produto?.nome" class="form-control" type="text" id="name-input" [disabled]="true">
+        </div>
+        <div class="col-xl-4">
+            <label for="valor-input">Valor</label>
+            <input [value]="produto?.valor" class="form-control" type="number" id="valor-input" min="0" [disabled]="true">
+        </div>
+        <div class="col-xl-4">
+            <select class="form-control select-promocao" [value]="produto.promocao" aria-placeholder="Promoção" [disabled]="true">
+                <option [selected]="true">
+                    {{produto?.promocao?.nome}}
+                </option>
+            </select>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xl-2">
+            <button (click)="submit()" type="button" class="btn btn-danger btn-cadastrar"
+                [disabled]="!produtoForm.valid">Deletar</button>
+        </div>
+        <div class="col-xl-2">
+            <button (click)="voltarHandler()" type="button" class="btn btn-warning btn-cadastrar">Voltar</button>
+        </div>
+    </div>
+</form>

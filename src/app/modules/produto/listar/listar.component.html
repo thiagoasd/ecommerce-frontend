@@ -1,0 +1,38 @@
+<div class="col-xl-12">
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Promoção
+            </th>
+            <th>
+                Ações
+            </th>
+        </tr>
+        <tr *ngFor="let row of rows">
+            <td>
+                {{row?.id}}
+            </td>
+            <td>
+                {{row?.nome}}
+            </td>
+            <td>
+                {{row?.valor}}
+            </td>
+            <td>
+                {{row?.promocao?.nome}}
+            </td>
+            <td>
+                <img src="assets/lapis.png" class="icones" width="20px" height="20px" (click)="edit(row)">
+                <img src="assets/lixeira.png" class="icones" width="20px" height="20px" (click)="delete(row)">
+            </td>
+    </table>
+</div>

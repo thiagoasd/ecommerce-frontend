@@ -22,5 +22,21 @@ export class ApiService {
     return this.http.get<any>(urlList);
   }
 
+  public post(url: string, payload: any): Observable<any> {
+    const urlList = `${this.urlBase}/${url}`;
+    return this.http.post<any>(urlList, payload);
+  }
+
+  public put(url: string, id: number,  payload: any): Observable<any> {
+    const urlList = `${this.urlBase}/${url}/${id}`;
+    return this.http.put<any>(urlList, payload);
+  }
+
+  public delete(url: string, id: number,  payload: any): Observable<any> {
+    const urlList = `${this.urlBase}/${url}/${id}`;
+    return this.http.delete<any>(urlList, payload);
+  }
+
+
 
 }

@@ -9,18 +9,46 @@ import { ProdutoService } from 'src/app/services/produto/produto.service';
 })
 export class ProdutoComponent implements OnInit {
 
-  headers = ["ID", "Nome", "Valor"];
-  rows: Array<Produto> = []
+  listarPage: boolean = true;
+  produtoPage: boolean = false;
+  editarPage: boolean = false;
+  deletarPage: boolean = false;
+  produto: Produto = {};
+
 
   constructor(private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
-    this.produtoService.listProduto().subscribe(
-      (response: Array<Produto>) => {
-        this.rows = response;
-      })
   }
 
+  public openCriar() {
+    this.resetarPages();
+    this.produtoPage = true;
+  }
+
+  public openListar() {
+    this.resetarPages();
+    this.listarPage = true;
+  }
+
+  public openEditar(produto: Produto) {
+    this.resetarPages();
+    this.editarPage = true;
+    this.produto = produto;
+  }
+
+  public openDeletar(produto: Produto) {
+    this.resetarPages();
+    this.deletarPage = true;
+    this.produto = produto;
+  }
+
+  public resetarPages() {
+    this.listarPage = false;
+    this.produtoPage = false;
+    this.editarPage = false;
+    this.deletarPage = false;
+  }
 
 
 }

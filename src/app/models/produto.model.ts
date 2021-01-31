@@ -1,5 +1,8 @@
+import { Promocao } from "./promocao.model";
+
 export interface Produto {
-    name: string;
-    valor: number;
-    id: number;
+    nome?: string;
+    valor?: number;
+    id?: number;
+    promocao?: Promocao;
   }
