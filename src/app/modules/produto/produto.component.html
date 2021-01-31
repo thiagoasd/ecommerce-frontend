@@ -1,0 +1,24 @@
+<p>Gerenciamento de Produtos</p>
+<button> </button>
+
+
+<div>
+    <table>
+        <tr>
+            <th *ngFor="let column of headers">
+                {{column}}
+            </th>
+        </tr>
+        <tr *ngFor="let row of rows">
+            <td>
+                {{row?.id}}
+            </td>
+            <td>
+                {{row?.name}}
+            </td>
+            <td>
+                {{row?.valor}}
+            </td>
+    </table>
+
+</div>
