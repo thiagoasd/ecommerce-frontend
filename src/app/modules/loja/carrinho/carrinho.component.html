@@ -31,6 +31,8 @@
             <td>
                 <img src="assets/lixeira.png" class="icones" width="20px" height="20px" (click)="removeCarrinho(produto)">
             </td>
+        </tr>
+        <tfoot>{{'Total: ' + total}}</tfoot>
     </table>
 
     <button *ngIf="this.carrinho.length > 0" (click)="finalizar()" type="button" class="btn btn-warning btn-adicionar"> Finalizar</button>

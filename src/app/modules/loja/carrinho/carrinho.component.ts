@@ -107,6 +107,7 @@ export class CarrinhoComponent implements OnInit {
 
   public finalizar(): void {
     this.carrinho = [];
+    this.total = 0;
     alert("pedido finalizado");
   }
 
