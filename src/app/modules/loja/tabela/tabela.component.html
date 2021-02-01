@@ -1,0 +1,31 @@
+<div class="col-xl-12">
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Promoção
+            </th>
+        </tr>
+        <tr *ngFor="let row of rows" (click)="openProduto(row)">
+            <td>
+                {{row?.id}}
+            </td>
+            <td>
+                {{row?.nome}}
+            </td>
+            <td>
+                {{row?.valor}}
+            </td>
+            <td>
+                {{row?.promocao?.nome}}
+            </td>
+    </table>
+</div>

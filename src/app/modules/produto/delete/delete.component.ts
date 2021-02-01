@@ -10,7 +10,7 @@ import { ProdutoService } from 'src/app/services/produto/produto.service';
 })
 export class DeleteComponent implements OnInit {
   constructor(private produtoService: ProdutoService) { }
-  @Input() produto: Produto = {};
+  @Input() produto: Produto = { nome: '', valor: 0};
   @Output() voltar = new EventEmitter<boolean>();
 
 

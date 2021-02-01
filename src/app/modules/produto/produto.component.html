@@ -5,6 +5,6 @@
 <app-criar *ngIf="produtoPage" (voltar)="openListar()"></app-criar>
 <app-editar *ngIf="editarPage" (voltar)="openListar()" [produto]="produto"></app-editar>
 
-<button *ngIf="listarPage" class="button btn btn-success" (click)="openCriar()">Adicionar novo produto</button>
+<button *ngIf="listarPage" class="button btn btn-success botao-adicionar" (click)="openCriar()">Adicionar novo produto</button>
 <app-listar *ngIf="listarPage" (editar)="openEditar($event)" (deletar)="openDeletar($event)"></app-listar>
 <app-delete *ngIf="deletarPage" (voltar)="openListar()" [produto]="produto"></app-delete>

@@ -13,7 +13,7 @@ import { PromocaoService } from 'src/app/services/promocao/promocao.service';
 
 export class EditarComponent implements OnInit {
   constructor(private produtoService: ProdutoService, private promocaoService: PromocaoService) { }
-  @Input() produto: Produto = {};
+  @Input() produto: Produto = { nome: '', valor: 0};
   @Output() voltar = new EventEmitter<boolean>();
   promocoes: Promocao[] = [];
 

@@ -1,5 +1,5 @@
 <form [formGroup]="produtoForm" class="">
-
+    <h3> Editar produto</h3>
     <div class="row">
         <div class="col-xl-4">
             <label for="name-input">Nome</label>
@@ -12,7 +12,7 @@
         <div class="col-xl-4">
             <select class="form-control select-promocao" formControlName="promocao" aria-placeholder="Promoção">
                 <option [ngValue]="undefined">Nenhuma promoção</option>
-                <option *ngFor="let promo of promocoes" [ngValue]="promo" [selected]="produto?.promocao?.id === promo?.id">
+                <option *ngFor="let promo of promocoes" [ngValue]="promo" [selected]="produto?.promocao?.id === promo.id">
                     <!-- TODO Selecionar a promoção dada -->
                     {{promo?.nome}}
                 </option>
@@ -23,11 +23,11 @@
 
 
     <div class="row">
-        <div class="col-xl-2">
+        <div class="col-xl-1">
             <button (click)="submit()" type="button" class="btn btn-primary btn-cadastrar"
-                [disabled]="!produtoForm.valid">Cadastrar</button>
+                [disabled]="!produtoForm.valid">Editar</button>
         </div>
-        <div class="col-xl-2">
+        <div class="col-xl-1">
             <button (click)="voltarHandler()" type="button" class="btn btn-warning btn-cadastrar">Voltar</button>
         </div>
     </div>

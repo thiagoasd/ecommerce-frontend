@@ -7,21 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   produto: boolean = false;
+  loja: boolean = true;
   title = 'ecommerce-frontend';
-
-
-
-
 
   public cleanVariables(): void {
     this.produto = false;
+    this.loja = false;
   }
 
-  public setProductPage(){
+  public ProdutoPage() {
     this.cleanVariables();
     this.produto = true;
   }
 
+  public LojaPage() {
+    this.cleanVariables();
+    this.loja = true;
+  }
 
 
 }

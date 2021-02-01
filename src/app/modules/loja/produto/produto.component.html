@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xl-2">
+        <label for="name-input">Nome</label>
+        <input [value]="produto?.nome" class="form-control" type="text" id="name-input" [disabled]="true">
+    </div>
+    <div class="col-xl-2">
+        <label for="valor-input">Valor</label>
+        <input [value]="produto?.valor" class="form-control" type="number" id="valor-input" min="0" [disabled]="true">
+    </div>
+    <div *ngIf="produto?.promocao?.nome" class="col-xl-2">
+        <label for="promocao-input">Promoção</label>
+        <input type="text" class="form-control select-promocao" [value]="produto?.promocao?.nome"
+            aria-placeholder="Promoção" id="promocao-input" [disabled]="true">
+    </div>
+    <div class="col-xl-2">
+        <label for="quantidade-input">Quantidade</label>
+        <input type="number" aria-label="Quantidade" id="quantidade-input" min="1" class="form-control select-promocao"
+            (change)="quantidadeChange($event)">
+    </div>
+    <div class="col-xl-3">
+        <button (click)="adicionarCarrinho()" type="button"
+        class="btn btn-primary btn-adicionar" [disabled]="quantidade < 1">Adicionar ao
+            Carrinho</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2">
+        <button (click)="sair()" type="button" class="btn btn-warning btn-voltar">Voltar</button>
+    </div>
+</div>

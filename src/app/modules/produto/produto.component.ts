@@ -13,7 +13,7 @@ export class ProdutoComponent implements OnInit {
   produtoPage: boolean = false;
   editarPage: boolean = false;
   deletarPage: boolean = false;
-  produto: Produto = {};
+  produto: Produto = { nome: '', valor: 0};
 
 
   constructor(private produtoService: ProdutoService) { }

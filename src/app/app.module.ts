@@ -11,6 +11,10 @@ import { ListarComponent } from './modules/produto/listar/listar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './modules/produto/editar/editar.component';
 import { DeleteComponent } from './modules/produto/delete/delete.component';
+import { LojaComponent } from './modules/loja/loja.component';
+import { TabelaComponent } from './modules/loja/tabela/tabela.component';
+import { LojaProdutoComponent } from './modules/loja/produto/produto.component';
+import { CarrinhoComponent } from './modules/loja/carrinho/carrinho.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,12 @@ import { DeleteComponent } from './modules/produto/delete/delete.component';
     CriarComponent,
     ListarComponent,
     EditarComponent,
-    DeleteComponent
+    DeleteComponent,
+    LojaComponent,
+    TabelaComponent,
+    LojaProdutoComponent,
+    CarrinhoComponent,
+    
   ],
   imports: [
     BrowserModule,

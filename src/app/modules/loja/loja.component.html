@@ -1,0 +1,4 @@
+<h1>Loja Siteware</h1>
+
+<app-tabela *ngIf="tabelaPage" (selectProduto)="openProduto($event)"></app-tabela>
+<app-loja-produto *ngIf="produtoPage" (voltar)="openTabela()" [produto]="produto"></app-loja-produto>
