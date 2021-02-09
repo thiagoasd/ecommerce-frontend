@@ -20,16 +20,32 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ecommerce-frontend'`, () => {
+  it('should cleanVariables', () => {
+
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ecommerce-frontend');
+    app.cleanVariables();
+    expect(app.produto).toBeFalse();
+    expect(app.loja).toBeFalse();
   });
 
-  it('should render title', () => {
+  it('should ProdutoPage', () => {
+
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ecommerce-frontend app is running!');
+    const app = fixture.componentInstance;
+    app.ProdutoPage();
+    expect(app.produto).toBeTrue();
+    expect(app.loja).toBeFalse();
   });
+
+  it('should LojaPage', () => {
+
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.LojaPage();
+    expect(app.produto).toBeFalse();
+    expect(app.loja).toBeTrue();
+  });
+
+
 });
