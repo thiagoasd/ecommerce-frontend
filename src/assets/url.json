@@ -1,5 +1,6 @@
 {
     "SERVER": "http://localhost:9090/api",
     "PRODUTO": "produto",
-    "PROMOCAO": "promocao"
+    "PROMOCAO": "promocao",
+    "PEDIDO":  "pedido"
 }

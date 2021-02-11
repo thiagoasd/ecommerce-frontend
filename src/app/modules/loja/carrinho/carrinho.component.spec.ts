@@ -9,7 +9,9 @@ import { CarrinhoComponent } from './carrinho.component';
 describe('CarrinhoComponent', () => {
   let component: CarrinhoComponent;
   let carrinhoService;
+  let pedidoService;
   let produtoStub: ProdutoCarrinho = { produto: { nome: 'teste', valor: 5 }, quantidade: 1 };
+
   let promocaoACADAStub = {
     nome: "3 por 10",
     valor: 10,
@@ -41,12 +43,8 @@ describe('CarrinhoComponent', () => {
   });
 
   beforeEach(() => {
-    carrinhoService = jasmine.createSpyObj('CarrinhoService', ['adicionar']);
-    carrinhoService.adicionar.and.callFake(() => of());
-    carrinhoService.carrinhoDispatcher = new Subject<ProdutoCarrinho>();
-    component = new CarrinhoComponent(carrinhoService);
-
     produtoStub = { produto: { nome: 'teste', valor: 5 }, quantidade: 1 };
+    
     promocaoACADAStub = {
       nome: "3 por 10",
       valor: 10,
@@ -69,6 +67,14 @@ describe('CarrinhoComponent', () => {
       ...produtoStub,
       quantidade: 3
     };
+
+    carrinhoService = jasmine.createSpyObj('CarrinhoService', ['adicionar']);
+    carrinhoService.adicionar.and.callFake(() => of());
+    carrinhoService.carrinhoDispatcher = new Subject<ProdutoCarrinho>();
+
+    pedidoService = jasmine.createSpyObj('PedidoService', ['postPedido']);
+    pedidoService.postPedido.and.callFake(() => of(produtoComPromoStub));
+    component = new CarrinhoComponent(carrinhoService, pedidoService);
 
   });
 

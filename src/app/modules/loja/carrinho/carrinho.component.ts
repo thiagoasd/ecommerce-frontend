@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/produto.model';
 import { ProdutoCarrinho } from 'src/app/models/produtoCarrinho.model';
 import { CarrinhoService } from 'src/app/services/carrinho/carrinho.service';
+import { PedidoService } from 'src/app/services/pedido/pedido.service';
 import * as promocoes from '../../../enums/promocoes.enum.json';
 
 @Component({
@@ -11,7 +12,7 @@ import * as promocoes from '../../../enums/promocoes.enum.json';
 })
 export class CarrinhoComponent implements OnInit {
 
-  constructor(private carrinhoService: CarrinhoService) { }
+  constructor(private carrinhoService: CarrinhoService, private pedidoService: PedidoService) { }
   carrinho: ProdutoCarrinho[] = [];
   total: number = 0;
 
@@ -106,9 +107,13 @@ export class CarrinhoComponent implements OnInit {
   }
 
   public finalizar(): void {
-    this.carrinho = [];
-    this.total = 0;
-    alert("pedido finalizado");
+    this.pedidoService.postPedido(this.carrinho).subscribe((res) => {
+      this.carrinho = [];
+      this.total = 0;
+      alert("pedido finalizado");
+    }
+    );
+
   }
 
 }
